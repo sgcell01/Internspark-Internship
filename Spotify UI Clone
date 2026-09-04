@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spotify Clone</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-brands fa-spotify"></i>
+            <span>Spotify</span>
+        </div>
+
+        <nav>
+            <a class="active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a id="searchNav">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </a>
+
+            <a>
+                <i class="fa-solid fa-book"></i>
+                Your Library
+            </a>
+        </nav>
+
+        <div class="playlist-title">
+            <h3>Your Playlists</h3>
+            <button id="addPlaylist">+</button>
+        </div>
+
+        <div class="playlists">
+            <p>My Playlist #1</p>
+            <p>Chill Vibes</p>
+            <p>Workout Music</p>
+            <p>Favorite Songs</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div class="navigation">
+                <button>
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="What do you want to play?"
+                >
+            </div>
+
+            <button class="profile">
+                <i class="fa-solid fa-user"></i>
+            </button>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <h1 id="pageTitle">Good afternoon</h1>
+
+            <!-- QUICK PLAYLISTS -->
+            <div class="quick-grid">
+
+                <div class="quick-card">
+                    <img src="https://picsum.photos/100?random=1">
+                    <span>Liked Songs</span>
+                    <button onclick="playSong('Liked Songs')">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="quick-card">
+                    <img src="https://picsum.photos/100?random=2">
+                    <span>Daily Mix 1</span>
+                    <button onclick="playSong('Daily Mix 1')">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="quick-card">
+                    <img src="https://picsum.photos/100?random=3">
+                    <span>Chill Hits</span>
+                    <button onclick="playSong('Chill Hits')">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="quick-card">
+                    <img src="https://picsum.photos/100?random=4">
+                    <span>Discover Weekly</span>
+                    <button onclick="playSong('Discover Weekly')">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- POPULAR ARTISTS -->
+            <div class="section-heading">
+                <h2>Popular artists</h2>
+                <span>Show all</span>
+            </div>
+
+            <div class="artist-grid">
+
+                <div class="artist-card">
+                    <img src="https://picsum.photos/300?random=10">
+                    <h3>Arijit Singh</h3>
+                    <p>Artist</p>
+                </div>
+
+                <div class="artist-card">
+                    <img src="https://picsum.photos/300?random=11">
+                    <h3>Armaan Malik</h3>
+                    <p>Artist</p>
+                </div>
+
+                <div class="artist-card">
+                    <img src="https://picsum.photos/300?random=12">
+                    <h3>AP Dhillon</h3>
+                    <p>Artist</p>
+                </div>
+
+                <div class="artist-card">
+                    <img src="https://picsum.photos/300?random=13">
+                    <h3>The Weeknd</h3>
+                    <p>Artist</p>
+                </div>
+
+                <div class="artist-card">
+                    <img src="https://picsum.photos/300?random=14">
+                    <h3>Drake</h3>
+                    <p>Artist</p>
+                </div>
+
+            </div>
+
+
+            <!-- ALBUMS -->
+            <div class="section-heading">
+                <h2>Made for you</h2>
+                <span>Show all</span>
+            </div>
+
+            <div class="album-grid">
+
+                <div class="album-card" onclick="playSong('Midnight Memories')">
+                    <img src="https://picsum.photos/300?random=20">
+
+                    <h3>Midnight Memories</h3>
+                    <p>Late night songs for you.</p>
+
+                    <button class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+
+                <div class="album-card" onclick="playSong('Chill Zone')">
+                    <img src="https://picsum.photos/300?random=21">
+
+                    <h3>Chill Zone</h3>
+                    <p>Relax and enjoy your day.</p>
+
+                    <button class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+
+                <div class="album-card" onclick="playSong('Daily Mix')">
+                    <img src="https://picsum.photos/300?random=22">
+
+                    <h3>Daily Mix</h3>
+                    <p>Your daily music mix.</p>
+
+                    <button class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+
+                <div class="album-card" onclick="playSong('Top Hits')">
+                    <img src="https://picsum.photos/300?random=23">
+
+                    <h3>Top Hits</h3>
+                    <p>Most popular songs.</p>
+
+                    <button class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PLAYER -->
+    <footer class="player">
+
+        <div class="current-song">
+
+            <img
+                id="currentImage"
+                src="https://picsum.photos/80?random=30"
+            >
+
+            <div>
+                <h4 id="currentSong">Choose a song</h4>
+                <p id="currentArtist">Spotify Clone</p>
+            </div>
+
+            <i class="fa-regular fa-heart"></i>
+
+        </div>
+
+
+        <div class="player-center">
+
+            <div class="controls">
+
+                <button>
+                    <i class="fa-solid fa-shuffle"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+
+                <button
+                    class="play-main"
+                    id="playButton"
+                    onclick="togglePlay()"
+                >
+                    <i class="fa-solid fa-play"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-forward-step"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-repeat"></i>
+                </button>
+
+            </div>
+
+            <div class="progress-container">
+
+                <span>0:00</span>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                >
+
+                <span>3:45</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="player-right">
+
+            <i class="fa-solid fa-list"></i>
+
+            <i class="fa-solid fa-volume-high"></i>
+
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="70"
+            >
+
+        </div>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+let isPlaying = false;
+
+const playButton = document.getElementById("playButton");
+const currentSong = document.getElementById("currentSong");
+const currentArtist = document.getElementById("currentArtist");
+const searchInput = document.getElementById("searchInput");
+
+
+// PLAY / PAUSE
+
+function togglePlay() {
+
+    isPlaying = !isPlaying;
+
+    if (isPlaying) {
+
+        playButton.innerHTML =
+            '<i class="fa-solid fa-pause"></i>';
+
+    } else {
+
+        playButton.innerHTML =
+            '<i class="fa-solid fa-play"></i>';
+    }
+}
+
+
+// PLAY SONG
+
+function playSong(songName) {
+
+    currentSong.textContent = songName;
+    currentArtist.textContent = "Spotify Clone";
+
+    isPlaying = true;
+
+    playButton.innerHTML =
+        '<i class="fa-solid fa-pause"></i>';
+}
+
+
+// SEARCH
+
+searchInput.addEventListener("input", function () {
+
+    const searchValue =
+        searchInput.value.toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".album-card, .artist-card");
+
+    cards.forEach(card => {
+
+        const text =
+            card.innerText.toLowerCase();
+
+        if (text.includes(searchValue)) {
+
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+
+// SEARCH NAVIGATION
+
+document
+    .getElementById("searchNav")
+    .addEventListener("click", function () {
+
+        searchInput.focus();
+
+    });
+
+
+// ADD PLAYLIST
+
+document
+    .getElementById("addPlaylist")
+    .addEventListener("click", function () {
+
+        alert("New playlist created!");
+
+    });
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+    color: white;
+    overflow: hidden;
+}
+
+.app {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr 90px;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    background: #000;
+    padding: 25px 18px;
+    grid-row: 1;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.logo i {
+    font-size: 32px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px;
+    color: #aaa;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+    background: #1a1a1a;
+}
+
+.playlist-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.playlist-title h3 {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.playlist-title button {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.playlists p {
+    color: #aaa;
+    padding: 8px 5px;
+    cursor: pointer;
+}
+
+.playlists p:hover {
+    color: white;
+}
+
+
+/* MAIN */
+
+.main {
+    background: linear-gradient(#202020, #121212 35%);
+    overflow-y: auto;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.topbar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(18, 18, 18, .8);
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.navigation button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #090909;
+    color: white;
+    cursor: pointer;
+}
+
+.search-container {
+    width: 45%;
+    background: white;
+    border-radius: 25px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+}
+
+
+/* CONTENT */
+
+.content {
+    padding: 20px 30px 120px;
+}
+
+.content h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+/* QUICK CARDS */
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.quick-card {
+    height: 80px;
+    background: rgba(255,255,255,.1);
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.quick-card:hover {
+    background: rgba(255,255,255,.2);
+}
+
+.quick-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.quick-card span {
+    padding: 15px;
+    font-weight: bold;
+}
+
+.quick-card button {
+    position: absolute;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #1ed760;
+}
+
+
+/* SECTION */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-size: 23px;
+}
+
+.section-heading span {
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+/* ARTISTS */
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.artist-card {
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.artist-card:hover {
+    background: #1d1d1d;
+}
+
+.artist-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.artist-card h3 {
+    margin-top: 12px;
+}
+
+.artist-card p {
+    color: #aaa;
+    margin-top: 6px;
+}
+
+
+/* ALBUMS */
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.album-card {
+    background: #181818;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.album-card:hover {
+    background: #282828;
+}
+
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.album-card h3 {
+    margin-top: 12px;
+}
+
+.album-card p {
+    color: #aaa;
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+.play-button {
+    position: absolute;
+    right: 20px;
+    bottom: 70px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #1ed760;
+    cursor: pointer;
+    opacity: 0;
+    transition: .3s;
+}
+
+.album-card:hover .play-button {
+    opacity: 1;
+}
+
+
+/* PLAYER */
+
+.player {
+    background: #181818;
+    grid-column: 1 / 3;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    align-items: center;
+    padding: 10px 18px;
+    border-top: 1px solid #333;
+}
+
+.current-song {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.current-song img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+}
+
+.current-song h4 {
+    font-size: 14px;
+}
+
+.current-song p {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.current-song > i {
+    color: #aaa;
+    margin-left: 15px;
+}
+
+
+.player-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.controls button {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.controls button:hover {
+    color: white;
+}
+
+.controls .play-main {
+    width: 35px;
+    height: 35px;
+    background: white;
+    color: black;
+    border-radius: 50%;
+}
+
+.progress-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.progress-container span {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.progress-container input {
+    width: 100%;
+}
+
+.player-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    color: #aaa;
+}
+
+.player-right input {
+    width: 100px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .app {
+        grid-template-columns: 1fr;
+    }
+
+    .main {
+        grid-column: 1;
+    }
+
+    .player {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+    }
+
+    .player-right {
+        display: none;
+    }
+
+    .current-song {
+        display: none;
+    }
+
+    .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .artist-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .search-container {
+        width: 55%;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .artist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
