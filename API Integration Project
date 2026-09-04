@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>👥 User Directory</h1>
+            <p>Users fetched dynamically from a REST API</p>
+        </header>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search users by name..."
+            >
+        </div>
+
+        <div id="loading" class="message">
+            Loading users...
+        </div>
+
+        <div id="error" class="message error">
+            Failed to load users.
+        </div>
+
+        <div id="userContainer" class="user-grid"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+const API_URL = "https://jsonplaceholder.typicode.com/users";
+
+const userContainer = document.getElementById("userContainer");
+const loading = document.getElementById("loading");
+const error = document.getElementById("error");
+const searchInput = document.getElementById("searchInput");
+
+let users = [];
+
+// Fetch users from API
+async function fetchUsers() {
+    try {
+        loading.style.display = "block";
+        error.style.display = "none";
+
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        users = await response.json();
+
+        displayUsers(users);
+
+    } catch (err) {
+        error.style.display = "block";
+        error.textContent = "❌ Error: " + err.message;
+    } finally {
+        loading.style.display = "none";
+    }
+}
+
+// Display users
+function displayUsers(data) {
+    userContainer.innerHTML = "";
+
+    if (data.length === 0) {
+        userContainer.innerHTML = "<p>No users found.</p>";
+        return;
+    }
+
+    data.forEach(user => {
+        const card = document.createElement("div");
+
+        card.classList.add("user-card");
+
+        card.innerHTML = `
+            <h2>${user.name}</h2>
+            <p><strong>Username:</strong> ${user.username}</p>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Website:</strong> ${user.website}</p>
+            <p><strong>City:</strong> ${user.address.city}</p>
+            <p><strong>Company:</strong> ${user.company.name}</p>
+        `;
+
+        userContainer.appendChild(card);
+    });
+}
+
+// Search users
+searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.toLowerCase();
+
+    const filteredUsers = users.filter(user =>
+        user.name.toLowerCase().includes(searchText) ||
+        user.username.toLowerCase().includes(searchText) ||
+        user.email.toLowerCase().includes(searchText)
+    );
+
+    displayUsers(filteredUsers);
+});
+
+// Start application
+fetchUsers();
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #666;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #007bff;
+}
+
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.user-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+}
+
+.user-card h2 {
+    margin-bottom: 12px;
+    color: #007bff;
+}
+
+.user-card p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.user-card strong {
+    color: #222;
+}
+
+.message {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
