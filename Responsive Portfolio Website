@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            padding-top: 56px; /* Offset for fixed navbar */
+        }
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .skill-card, .project-card {
+            transition: transform 0.3s ease;
+        }
+        .skill-card:hover, .project-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">shubham kumar</a>
+            <button class="navbar-brand-toggler navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container text-center text-md-start">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-3 fw-bold text-dark">Hi, I'm a Developer</h1>
+                    <p class="lead my-4 text-muted">I build clean, responsive, and user-friendly web applications.</p>
+                    <a href="#projects" class="btn btn-primary btn-lg px-4 me-md-2">View My Work</a>
+                    <a href="#contact" class="btn btn-outline-secondary btn-lg px-4">Get In Touch</a>
+                </div>
+                <div class="col-md-6 text-center d-none d-md-block">
+                    <i class="bi bi-laptop text-primary" style="font-size: 12rem;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">My Skills</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 bg-white rounded shadow-sm skill-card">
+                        <i class="bi bi-filetype-html text-danger fs-1"></i>
+                        <h5 class="mt-3">HTML5</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 bg-white rounded shadow-sm skill-card">
+                        <i class="bi bi-filetype-css text-primary fs-1"></i>
+                        <h5 class="mt-3">CSS3</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 bg-white rounded shadow-sm skill-card">
+                        <i class="bi bi-bootstrap text-purple fs-1" style="color: #7952b3;"></i>
+                        <h5 class="mt-3">Bootstrap</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="p-4 bg-white rounded shadow-sm skill-card">
+                        <i class="bi bi-braces text-warning fs-1"></i>
+                        <h5 class="mt-3">JavaScript</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Featured Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm project-card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">E-Commerce Platform</h5>
+                            <p class="card-text text-muted">A fully functional online store with shopping cart and payment integration features.</p>
+                            <span class="badge bg-secondary mb-3">Bootstrap</span>
+                            <span class="badge bg-secondary mb-3">JS</span>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm project-card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Task Management App</h5>
+                            <p class="card-text text-muted">A kanban-style task manager to help teams organize daily operations and sprints.</p>
+                            <span class="badge bg-secondary mb-3">HTML/CSS</span>
+                            <span class="badge bg-secondary mb-3">React</span>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm project-card">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Weather Dashboard</h5>
+                            <p class="card-text text-muted">A live weather tracking dashboard utilizing third-party API fetches and geolocation.</p>
+                            <span class="badge bg-secondary mb-3">API</span>
+                            <span class="badge bg-secondary mb-3">JavaScript</span>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Jane Doe. All rights reserved.</p>
+            <div class="mt-2">
+                <a href="#" class="text-white-50 me-3"><i class="bi bi-github"></i></a>
+                <a href="#" class="text-white-50 me-3"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-white-50"><i class="bi bi-twitter-x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
